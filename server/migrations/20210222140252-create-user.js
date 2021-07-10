@@ -17,6 +17,19 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
+      NIK: {
+        allowNull : false,
+        type: Sequelize.INTEGER,
+        unique: true
+      },
+      kampus: {
+        allowNull : false,
+        type: Sequelize.STRING
+      },
+      tanggal_mapaba: {
+        allowNull : false,
+        type: Sequelize.DATE
+      },
       password: {
         allowNull : false,
         type: Sequelize.STRING

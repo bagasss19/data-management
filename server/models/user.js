@@ -46,6 +46,33 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    NIK: {
+      type : DataTypes.INTEGER,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "NIK cannot be empty!"
+        }
+      }
+    },
+    kampus: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "Kampus cannot be empty!"
+        }
+      }
+    },
+    tanggal_mapaba: {
+      type : DataTypes.DATE,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : "Tanggal Mapaba cannot be empty!"
+        }
+      }
+    },
     isAdmin: {
       type : DataTypes.BOOLEAN
     }

@@ -20,6 +20,8 @@ export default function Login(props) {
         })
             .then(function (response) {
                 localStorage.token = response.data.token
+                localStorage.name = response.data.param.name
+                localStorage.isAdmin = response.data.param.isAdmin
                 props.history.push('/')
                 window.location.reload();
             })
@@ -32,9 +34,13 @@ export default function Login(props) {
     }
     return (
         <>
-            <h1 className="is-size-1 is-family-code" style={{ marginTop: "50px" }}>Welcome, Please Login</h1>
+            <h1 className="is-size-2 is-family-code" style={{ marginTop: "50px" }}>Selamat Datang di Website PMII DKI Jakarta</h1>
 
-            <form className="form"
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                    <form className="form"
                 style={{ justifyContent: "center", alignContent: "center", marginTop: "100px", width: "50%", display: "inline-block" }}
                 onSubmit={(e) => {
                     e.preventDefault()
@@ -52,11 +58,14 @@ export default function Login(props) {
 
                 <div className="field">
                     <div className="control">
-                        <button className="button is-black">Login</button>
+                        <button className="button is-info">Login</button>
                     </div>
                     <p>Doesn't Have Account? Register <Link to="/register">Here</Link></p>
                 </div>
             </form>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

@@ -17,11 +17,11 @@ class Controller {
                 if (!checkPass) throw ({ msg: "invalid email or password!", code: 400 })
                 let param = {
                     id: data.id,
-                    email: data.email,
-                    role: data.role
+                    name: data.name,
+                    isAdmin: data.isAdmin
                 }
                 let token = generateToken(param)
-                res.status(200).json({ token })
+                res.status(200).json({ token, param })
             })
             .catch(err => {
                 next(err)
@@ -39,6 +39,18 @@ class Controller {
             })
     }
 
+    static read(req,res,next) {
+        User.findAll({
+            order : [['id', 'ASC']]
+        })
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            console.log(err);
+            next(err)
+        })
+    }
 }
 
 module.exports = Controller
